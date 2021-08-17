@@ -1,8 +1,8 @@
-include("prefy")
-include("prefy-annotations")
-include("prefy-compiler")
-include("prefy-jvm")
-include("prefy-android")
+include("prefs-core")
+include("prefs-annotations")
+include("prefs-compiler")
+include("prefs-jvm")
+include("prefs-android")
 
 include("website")
 includeDir("example")

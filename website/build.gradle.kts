@@ -3,7 +3,7 @@ plugins {
 }
 
 gitPublish {
-    repoUri.set(RELEASE_WEB)
+    repoUri.set(RELEASE_GITHUB)
     branch.set("gh-pages")
     contents.from(
         "src",
@@ -23,7 +23,7 @@ tasks["gitPublishCopy"].dependsOn(
 // list of artifacts with Dokka
 val artifacts: List<String>
     get() = listOf(
-        RELEASE_ARTIFACT,
+        "$RELEASE_ARTIFACT-core",
         "$RELEASE_ARTIFACT-compiler",
         "$RELEASE_ARTIFACT-jvm",
         "$RELEASE_ARTIFACT-android"

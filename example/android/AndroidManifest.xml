@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.prefy">
+    package="com.example.prefs">
 
     <application
-        android:name=".ExampleApp"
+        android:name="com.example.prefs.ExampleApp"
         android:allowBackup="true"
-        android:label="Prefy Example"
+        android:label="Prefs Example"
         android:theme="@style/Theme.MaterialComponents.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.prefs.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Example1Activity" />
-        <activity android:name=".Example2Activity" />
+        <activity android:name="com.example.prefs.Example1Activity" />
+        <activity android:name="com.example.prefs.Example2Activity" />
     </application>
 </manifest>

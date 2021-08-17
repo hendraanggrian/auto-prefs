@@ -1,10 +1,16 @@
 plugins {
+    javafx
     kotlin("jvm")
     kotlin("kapt")
     application
 }
 
-application.mainClassName = "com.example.$RELEASE_ARTIFACT.ExampleApp"
+application.mainClass.set("com.example.$RELEASE_ARTIFACT.ExampleApp")
+
+javafx {
+    version = "11"
+    modules("javafx.controls", "javafx.fxml")
+}
 
 sourceSets {
     get("main").java.srcDir("src")

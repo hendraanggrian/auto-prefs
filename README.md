@@ -1,8 +1,7 @@
-[![download](https://api.bintray.com/packages/hendraanggrian/prefy/prefy/images/download.svg) ](https://bintray.com/hendraanggrian/prefy/prefy/_latestVersion)
-[![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
-[![license](https://img.shields.io/github/license/hendraanggrian/prefy)](http://www.apache.org/licenses/LICENSE-2.0)
+[![version](https://img.shields.io/maven-central/v/com.hendraanggrian.auto/prefs)](https://search.maven.org/artifact/com.hendraanggrian.auto/prefs)
+[![analysis](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081)](https://ktlint.github.io)
 
-Prefy
+Prefs
 =====
 Local settings library that runs in plain Java and Android.
 * Retrieve and assign values with Kotlin operator functions.
@@ -23,17 +22,18 @@ fun applyChanges(person: Person) {
 
 Download
 --------
+
 ```gradle
 repositories {
     jcenter()
 }
 
 dependencies {
-    compile "com.hendraanggrian.prefy:prefy-jvm:$version" // for non-Android project
-    api "com.hendraanggrian.prefy:prefy-android:$version" // for Android project
+    compile "com.hendraanggrian.prefs:prefs-jvm:$version" // for non-Android project
+    api "com.hendraanggrian.prefs:prefs-android:$version" // for Android project
 
     // optional annotation processor
-    annotationProcessor "com.hendraanggrian.prefy:prefy-compiler:$version" // or kapt
+    annotationProcessor "com.hendraanggrian.prefs:prefs-compiler:$version" // or kapt
 }
 ```
 

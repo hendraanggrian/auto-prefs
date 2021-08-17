@@ -52,6 +52,6 @@ dependencies {
 
     implementation(androidx("core", "core-ktx", VERSION_ANDROIDX))
     implementation(androidx("appcompat", version = VERSION_ANDROIDX))
-    implementation(androidx("preference", "preference-ktx", version = VERSION_ANDROIDX))
+    implementation(androidx("preference", "preference-ktx", "1.1.1"))
     implementation(material())
 }
