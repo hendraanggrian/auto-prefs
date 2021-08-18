@@ -1,0 +1,41 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.hendraanggrian.prefs.android////PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/index.html
+$dokka.location:com.hendraanggrian.prefs.android//Android/com.hendraanggrian.prefs.PreferencesLogger.Companion#/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android.html
+$dokka.location:com.hendraanggrian.prefs.android//bindPreferences/android.app.Fragment#/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/bind-preferences.html
+$dokka.location:com.hendraanggrian.prefs.android//bindPreferences/android.content.Context#/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/bind-preferences.html
+$dokka.location:com.hendraanggrian.prefs.android//bindPreferences/androidx.fragment.app.Fragment#/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/bind-preferences.html
+$dokka.location:com.hendraanggrian.prefs.android//get/com.hendraanggrian.prefs.Prefs#android.content.SharedPreferences/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/get.html
+$dokka.location:com.hendraanggrian.prefs.android//preferences/android.app.Fragment#/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/preferences.html
+$dokka.location:com.hendraanggrian.prefs.android//preferences/android.content.Context#/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/preferences.html
+$dokka.location:com.hendraanggrian.prefs.android//preferences/androidx.fragment.app.Fragment#/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/preferences.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences.Editor///PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/-editor/index.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences.Editor/clear/#/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/-editor/clear.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences.Editor/remove/#kotlin.String/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/-editor/remove.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences.Editor/save/#/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/-editor/save.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences.Editor/saveAsync/#/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/-editor/save-async.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences.Editor/set/#kotlin.String#kotlin.Boolean/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/-editor/set.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences.Editor/set/#kotlin.String#kotlin.Byte/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/-editor/set.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences.Editor/set/#kotlin.String#kotlin.Double/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/-editor/set.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences.Editor/set/#kotlin.String#kotlin.Float/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/-editor/set.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences.Editor/set/#kotlin.String#kotlin.Int/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/-editor/set.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences.Editor/set/#kotlin.String#kotlin.Long/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/-editor/set.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences.Editor/set/#kotlin.String#kotlin.Short/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/-editor/set.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences.Editor/set/#kotlin.String#kotlin.String?/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/-editor/set.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences///PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/index.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences/editor/#/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/editor.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences/get/#kotlin.String/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/get.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences/getBoolean/#kotlin.String/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/get-boolean.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences/getBooleanOrDefault/#kotlin.String#kotlin.Boolean/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/get-boolean-or-default.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences/getByte/#kotlin.String/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/get-byte.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences/getDouble/#kotlin.String/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/get-double.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences/getFloat/#kotlin.String/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/get-float.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences/getFloatOrDefault/#kotlin.String#kotlin.Float/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/get-float-or-default.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences/getInt/#kotlin.String/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/get-int.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences/getIntOrDefault/#kotlin.String#kotlin.Int/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/get-int-or-default.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences/getLong/#kotlin.String/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/get-long.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences/getLongOrDefault/#kotlin.String#kotlin.Long/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/get-long-or-default.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences/getOrDefault/#kotlin.String#kotlin.String/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/get-or-default.html
+$dokka.location:com.hendraanggrian.prefs.android/AndroidPreferences/getShort/#kotlin.String/PointingToDeclaration/prefs-android/com.hendraanggrian.prefs.android/-android-preferences/get-short.html
+com.hendraanggrian.prefs.android
+

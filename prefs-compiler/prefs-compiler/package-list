@@ -1,0 +1,11 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.hendraanggrian.prefs.compiler////PointingToDeclaration/prefs-compiler/com.hendraanggrian.prefs.compiler/index.html
+$dokka.location:com.hendraanggrian.prefs.compiler/PrefsProcessor///PointingToDeclaration/prefs-compiler/com.hendraanggrian.prefs.compiler/-prefs-processor/index.html
+$dokka.location:com.hendraanggrian.prefs.compiler/PrefsProcessor/PrefsProcessor/#/PointingToDeclaration/prefs-compiler/com.hendraanggrian.prefs.compiler/-prefs-processor/-prefs-processor.html
+$dokka.location:com.hendraanggrian.prefs.compiler/PrefsProcessor/getSupportedAnnotationTypes/#/PointingToDeclaration/prefs-compiler/com.hendraanggrian.prefs.compiler/-prefs-processor/get-supported-annotation-types.html
+$dokka.location:com.hendraanggrian.prefs.compiler/PrefsProcessor/getSupportedSourceVersion/#/PointingToDeclaration/prefs-compiler/com.hendraanggrian.prefs.compiler/-prefs-processor/get-supported-source-version.html
+$dokka.location:com.hendraanggrian.prefs.compiler/PrefsProcessor/init/#javax.annotation.processing.ProcessingEnvironment/PointingToDeclaration/prefs-compiler/com.hendraanggrian.prefs.compiler/-prefs-processor/init.html
+$dokka.location:com.hendraanggrian.prefs.compiler/PrefsProcessor/process/#kotlin.collections.Set[javax.lang.model.element.TypeElement]#javax.annotation.processing.RoundEnvironment/PointingToDeclaration/prefs-compiler/com.hendraanggrian.prefs.compiler/-prefs-processor/process.html
+com.hendraanggrian.prefs.compiler
+
