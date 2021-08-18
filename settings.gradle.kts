@@ -5,7 +5,7 @@ include("prefs-jvm")
 include("prefs-android")
 
 include("website")
-includeDir("example")
+includeDir("samples")
 
 fun includeDir(path: String) = file(path)
     .listFiles()!!

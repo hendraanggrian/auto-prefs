@@ -19,4 +19,4 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
-mavenPublishJvm("$RELEASE_ARTIFACT-core")
+mavenPublishJvm("$RELEASE_ARTIFACT-annotations")

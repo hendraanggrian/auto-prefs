@@ -41,6 +41,9 @@ tasks {
             }
         }
     }
+    dokkaHtml {
+        outputDirectory.set(buildDir.resolve("dokka/$RELEASE_ARTIFACT-core"))
+    }
 }
 
 mavenPublishJvm("$RELEASE_ARTIFACT-core")

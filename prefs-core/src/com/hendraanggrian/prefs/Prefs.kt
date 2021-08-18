@@ -66,25 +66,24 @@ object Prefs {
             info("HIT: Cache found in binding weak map.")
             return binding
         }
-        if (cls.canonicalName.startsWith("android.") ||
-            cls.canonicalName.startsWith("java.") ||
-            cls.canonicalName.startsWith("kotlin.")
+        val clsName = cls.name
+        if (clsName.startsWith("android.") || clsName.startsWith("androidx.") ||
+            clsName.startsWith("java.") || clsName.startsWith("kotlin.")
         ) {
             info("MISS: Reached framework class. Abandoning search.")
             return null
         }
         try {
             binding = cls.classLoader!!
-                .loadClass(cls.simpleName + BindPreference.SUFFIX)
-                .getConstructor(ReadablePreferences::class.java, cls)
-                as Constructor<PreferencesSaver>
+                .loadClass(clsName + BindPreference.SUFFIX)
+                .getConstructor(ReadablePreferences::class.java, cls) as Constructor<PreferencesSaver>
             info("HIT: Loaded binding class, caching in weak map.")
         } catch (e: ClassNotFoundException) {
             val supercls = cls.superclass!!
-            warn("Not found. Trying superclass ${supercls.simpleName} ...")
+            warn("Not found. Trying superclass ${supercls.name} ...")
             binding = findBindingConstructor(supercls)
         } catch (e: NoSuchMethodException) {
-            throw RuntimeException("Unable to find binding constructor for ${cls.simpleName}", e)
+            throw RuntimeException("Unable to find binding constructor for $clsName", e)
         }
         BINDINGS!![cls] = checkNotNull(binding) {
             "Unable to find preferences binding, is `prefs-compiler` correctly installed?"

@@ -28,10 +28,10 @@ class PrefsProcessor : AbstractProcessor() {
 
     override fun getSupportedSourceVersion(): SourceVersion = SourceVersion.latestSupported()
 
-    override fun getSupportedAnnotationTypes(): Set<String> =
-        setOf(BindPreference::class.java.canonicalName)
+    override fun getSupportedAnnotationTypes(): Set<String> = setOf(BindPreference::class.java.canonicalName)
 
-    @Synchronized override fun init(processingEnv: ProcessingEnvironment) {
+    @Synchronized
+    override fun init(processingEnv: ProcessingEnvironment) {
         super.init(processingEnv)
         filer = processingEnv.filer
     }

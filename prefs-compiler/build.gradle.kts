@@ -50,6 +50,9 @@ tasks {
             }
         }
     }
+    dokkaHtml {
+        outputDirectory.set(buildDir.resolve("dokka/$RELEASE_ARTIFACT-compiler"))
+    }
 }
 
 mavenPublishJvm("$RELEASE_ARTIFACT-compiler")

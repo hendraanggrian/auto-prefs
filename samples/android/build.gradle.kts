@@ -6,10 +6,10 @@ plugins {
 }
 
 android {
-    compileSdkVersion(SDK_TARGET)
+    compileSdk = SDK_TARGET
     defaultConfig {
-        minSdkVersion(SDK_MIN)
-        targetSdkVersion(SDK_TARGET)
+        minSdk = SDK_MIN
+        targetSdk = SDK_TARGET
         applicationId = "com.example.$RELEASE_ARTIFACT"
         versionName = RELEASE_VERSION
     }
@@ -37,19 +37,16 @@ android {
     packagingOptions {
         exclude("META-INF/services/javax.annotation.processing.Processor")
     }
-    lintOptions {
+    lint {
         isAbortOnError = false
     }
 }
 
 dependencies {
     api(kotlin("stdlib", VERSION_KOTLIN))
-
     implementation(project(":$RELEASE_ARTIFACT-android"))
     kapt(project(":$RELEASE_ARTIFACT-compiler"))
-
     implementation(apache("commons", "commons-lang3", VERSION_COMMONS_LANG))
-
     implementation(androidx("core", "core-ktx", VERSION_ANDROIDX))
     implementation(androidx("appcompat", version = VERSION_ANDROIDX))
     implementation(androidx("preference", "preference-ktx", "1.1.1"))

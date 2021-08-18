@@ -27,7 +27,8 @@ import java.io.File
 class ExampleApp : Application() {
 
     companion object {
-        @JvmStatic fun main(args: Array<String>) = launchApplication<ExampleApp>(*args)
+        @JvmStatic
+        fun main(args: Array<String>) = launchApplication<ExampleApp>(*args)
     }
 
     private lateinit var nameField: TextField
@@ -35,23 +36,22 @@ class ExampleApp : Application() {
     private lateinit var ageField: TextField
     private lateinit var heightField: TextField
 
-    @BindPreference @JvmField var name: String? = null
-    @BindPreference @JvmField var married: String = "false"
-    @BindPreference @JvmField var age: String = "0"
-    @BindPreference @JvmField var height: String = "0.0"
+    @BindPreference var name: String? = null
+    @BindPreference var married: String = "false"
+    @BindPreference var age: String = "0"
+    @BindPreference var height: String = "0.0"
 
     private lateinit var saver: PreferencesSaver
 
     override fun init() = Prefs.setLogger(PreferencesLogger.System)
 
     override fun start(stage: Stage) {
-        saver = bindPreferences(
-            Prefs[File(SystemUtils.USER_HOME, "Desktop").resolve("test.properties")]
-        )
+        saver = bindPreferences(Prefs[File(SystemUtils.USER_HOME, "Desktop").resolve("test.properties")])
         stage.scene {
             gridPane {
-                padding = insetsOf(0)
-                hgap = 0.0; vgap = 0.0
+                padding = insetsOf(10)
+                hgap = 10.0
+                vgap = 10.0
                 label("Name").grid(0, 0)
                 nameField = textField(name.orEmpty()).grid(0, 1)
                 label("Married").grid(1, 0)

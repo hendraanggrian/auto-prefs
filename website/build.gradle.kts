@@ -3,28 +3,27 @@ plugins {
 }
 
 gitPublish {
-    repoUri.set(RELEASE_GITHUB)
+    repoUri.set("git@github.com:hendraanggrian/$RELEASE_ARTIFACT.git")
     branch.set("gh-pages")
     contents.from(
         "src",
-        *artifacts
-            .map { "../$it/build/docs" }
-            .toTypedArray()
+        "../$RELEASE_ARTIFACT-core/build/dokka",
+        "../$RELEASE_ARTIFACT-android/build/dokka",
+        "../$RELEASE_ARTIFACT-jvm/build/dokka",
+        "../$RELEASE_ARTIFACT-compiler/build/dokka"
     )
 }
 
-tasks["gitPublishCopy"].dependsOn(
-    *artifacts
-        .map { it.replace('/', ':') }
-        .map { ":$it:dokka" }
-        .toTypedArray()
-)
-
-// list of artifacts with Dokka
-val artifacts: List<String>
-    get() = listOf(
-        "$RELEASE_ARTIFACT-core",
-        "$RELEASE_ARTIFACT-compiler",
-        "$RELEASE_ARTIFACT-jvm",
-        "$RELEASE_ARTIFACT-android"
-    )
+tasks {
+    register("clean") {
+        delete(buildDir)
+    }
+    gitPublishCopy {
+        dependsOn(
+            ":$RELEASE_ARTIFACT-core:dokkaHtml",
+            ":$RELEASE_ARTIFACT-android:dokkaHtml",
+            ":$RELEASE_ARTIFACT-jvm:dokkaHtml",
+            ":$RELEASE_ARTIFACT-compiler:dokkaHtml"
+        )
+    }
+}

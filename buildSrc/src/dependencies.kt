@@ -24,14 +24,14 @@ val Plugins.dokka get() = id("org.jetbrains.dokka")
 fun Dependencies.kotlinx(module: String, version: String? = null) =
     "org.jetbrains.kotlinx:kotlinx-$module${version?.let { ":$it" }.orEmpty()}"
 
-val Dependencies.`git-publish` get() = "org.ajoberstar:gradle-git-publish:2.1.3"
+val Dependencies.`git-publish` get() = "org.ajoberstar:gradle-git-publish:3.0.0"
 val Plugins.`git-publish` get() = id("org.ajoberstar.git-publish")
 
 const val VERSION_COMMONS_LANG = "3.11"
 fun Dependencies.apache(repo: String, module: String, version: String) = "org.apache.$repo:$module:$version"
 
-const val VERSION_AUTOCOMMON = "0.10"
-const val VERSION_GUAVA = "28.2-jre"
+const val VERSION_AUTOCOMMON = "1.1.2"
+const val VERSION_GUAVA = "30.1.1-jre"
 const val VERSION_TRUTH = "1.1.3"
 fun Dependencies.google(repo: String? = null, module: String, version: String) =
     "com.google${repo?.let { ".$it" }.orEmpty()}:$module:$version"
