@@ -32,7 +32,7 @@ dependencies {
     implementation(project(":$RELEASE_ARTIFACT-annotations"))
     implementation(google("auto", "auto-common", VERSION_AUTOCOMMON))
     implementation(google("guava", "guava", VERSION_GUAVA))
-    implementation(hendraanggrian("javapoet-ktx", VERSION_JAVAPOET_KTX))
+    implementation(hendraanggrian("javapoet-ktx", VERSION_JAVAPOETKTX))
     compileOnly(files(org.gradle.internal.jvm.Jvm.current().toolsJar))
     testImplementation(kotlin("test-junit", VERSION_KOTLIN))
     testImplementation(google("truth", "truth", VERSION_TRUTH))

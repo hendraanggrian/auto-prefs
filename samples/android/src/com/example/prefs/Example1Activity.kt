@@ -14,11 +14,11 @@ import com.hendraanggrian.prefs.android.bindPreferences
 import kotlinx.android.synthetic.main.activity_example1.*
 
 class Example1Activity : AppCompatActivity(), View.OnClickListener {
-    @BindPreference("name") var name: String? = null
-    @BindPreference("married") @JvmField var married: Boolean = false
-    @BindPreference("int") @JvmField var mInt: Int = 0
-    @BindPreference("long") @JvmField var mLong: Long = 0L
-    @BindPreference("float") @JvmField var mFloat: Float = 0f
+    @JvmField @BindPreference("name") var name: String? = null
+    @JvmField @BindPreference("married") var married: Boolean = false
+    @JvmField @BindPreference("int") var mInt: Int = 0
+    @JvmField @BindPreference("long") var mLong: Long = 0L
+    @JvmField @BindPreference("float") var mFloat: Float = 0f
 
     private lateinit var saver: PreferencesSaver
 

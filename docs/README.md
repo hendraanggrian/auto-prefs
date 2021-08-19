@@ -5,11 +5,11 @@ Prefs
 =====
 Local settings library that runs in plain Java and Android.
 * Retrieve and assign values with Kotlin operator functions.
-* Annotation processor to bind preferences' values to JVM fields, similar to [ButterKnife].
+* Annotation processor to bind preferences' values to JVM fields, similar to [ButterKnife](https://github.com/JakeWharton/butterknife).
 
 ```kotlin
-@BindPreference lateinit var name: String
-@BindPreference @JvmField var age: Int = 0
+@JvmField @BindPreference var name: String = ""
+@JvmField @BindPreference var age: Int = 0
 
 lateinit var saver: PreferencesSaver = bindPreferences()
 
@@ -25,20 +25,16 @@ Download
 
 ```gradle
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
-    compile "com.hendraanggrian.prefs:prefs-jvm:$version" // for non-Android project
-    api "com.hendraanggrian.prefs:prefs-android:$version" // for Android project
-
-    // optional annotation processor
-    annotationProcessor "com.hendraanggrian.prefs:prefs-compiler:$version" // or kapt
+    compile "com.hendraanggrian.auto:prefs-jvm:$version" // for non-Android project
+    api "com.hendraanggrian.auto:prefs-android:$version" // for Android project
+    annotationProcessor "com.hendraanggrian.auto:prefs-compiler:$version" // or kapt
 }
 ```
 
 Usage
 -----
 Coming soon.
-
-[ButterKnife]: https://github.com/JakeWharton/butterknife

@@ -83,22 +83,22 @@ class AndroidPreferences internal constructor(private val nativePreferences: Sha
     override fun get(key: String): String? = getString(key, null)
     override fun getOrDefault(key: String, defaultValue: String): String = getString(key, defaultValue)!!
 
-    override fun getBoolean(key: String): Boolean? = getBoolean(key, false)
+    override fun getBoolean(key: String): Boolean? = if (key !in nativePreferences) null else getBoolean(key, false)
     override fun getBooleanOrDefault(key: String, defaultValue: Boolean): Boolean = getBoolean(key, defaultValue)
 
-    override fun getDouble(key: String): Double? = throw UnsupportedOperationException()
+    override fun getDouble(key: String): Nothing = throw UnsupportedOperationException()
 
-    override fun getFloat(key: String): Float? = getFloat(key, 0f)
+    override fun getFloat(key: String): Float? = if (key !in nativePreferences) null else getFloat(key, 0f)
     override fun getFloatOrDefault(key: String, defaultValue: Float): Float = getFloat(key, defaultValue)
 
-    override fun getLong(key: String): Long? = getLong(key, 0L)
+    override fun getLong(key: String): Long? = if (key !in nativePreferences) null else getLong(key, 0L)
     override fun getLongOrDefault(key: String, defaultValue: Long): Long = getLong(key, defaultValue)
 
-    override fun getInt(key: String): Int? = getInt(key, 0)
+    override fun getInt(key: String): Int? = if (key !in nativePreferences) null else getInt(key, 0)
     override fun getIntOrDefault(key: String, defaultValue: Int): Int = getInt(key, defaultValue)
 
-    override fun getShort(key: String): Short? = throw UnsupportedOperationException()
-    override fun getByte(key: String): Byte? = throw UnsupportedOperationException()
+    override fun getShort(key: String): Nothing = throw UnsupportedOperationException()
+    override fun getByte(key: String): Nothing = throw UnsupportedOperationException()
 
     override val editor: Editor get() = Editor(nativePreferences.edit())
 
@@ -141,7 +141,8 @@ class AndroidPreferences internal constructor(private val nativePreferences: Sha
          * Save changes blocking thread.
          * @see SharedPreferences.Editor.commit
          */
-        @WorkerThread override fun save() {
+        @WorkerThread
+        override fun save() {
             nativeEditor.commit()
         }
 
@@ -149,6 +150,7 @@ class AndroidPreferences internal constructor(private val nativePreferences: Sha
          * Save preferences changes in the background.
          * @see SharedPreferences.Editor.apply
          */
-        @AnyThread fun saveAsync() = nativeEditor.apply()
+        @AnyThread
+        fun saveAsync() = nativeEditor.apply()
     }
 }

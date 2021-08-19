@@ -15,16 +15,18 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     sourceSets {
-        getByName("main") {
+        named("main") {
             manifest.srcFile("AndroidManifest.xml")
             java.srcDir("src")
             res.srcDir("res")
+            resources.srcDir("src")
         }
-        getByName("androidTest") {
+        named("androidTest") {
             setRoot("tests")
             manifest.srcFile("tests/AndroidManifest.xml")
             java.srcDir("tests/src")
             res.srcDir("tests/res")
+            resources.srcDir("tests/src")
         }
     }
     libraryVariants.all {

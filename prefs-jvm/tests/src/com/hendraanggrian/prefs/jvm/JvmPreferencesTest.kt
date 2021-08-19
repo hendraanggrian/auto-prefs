@@ -10,12 +10,14 @@ import kotlin.test.assertEquals
 class JvmPreferencesTest {
     private lateinit var preferences: JvmPreferences
 
-    @BeforeTest fun createTest() {
+    @BeforeTest
+    fun createTest() {
         Prefs.setLogger(PreferencesLogger.System)
         preferences = Prefs.userNode<ReadablePreferences>()
     }
 
-    @Test fun jvm() {
+    @Test
+    fun jvm() {
         preferences["name"] = "Hendra"
         preferences.save()
         assertEquals("Hendra", preferences["name"])

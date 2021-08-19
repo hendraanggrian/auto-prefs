@@ -1,7 +1,7 @@
 const val SDK_MIN = 14
 const val SDK_TARGET = 30
 
-const val RELEASE_GROUP = "com.hendraanggrian.auto.prefs"
+const val RELEASE_GROUP = "com.hendraanggrian.auto"
 const val RELEASE_ARTIFACT = "prefs"
 const val RELEASE_VERSION = "0.1-SNAPSHOT"
 const val RELEASE_DESCRIPTION = "Preferences field binder for JVM and Android"

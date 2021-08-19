@@ -16,13 +16,15 @@ import kotlin.test.assertNull
 class AndroidPreferencesTest {
     private lateinit var preferences: AndroidPreferences
 
-    @BeforeTest fun createTest() {
+    @BeforeTest
+    fun createTest() {
         Prefs.setLogger(PreferencesLogger.Android)
         preferences = InstrumentationRegistry.getInstrumentation().context.preferences
         preferences.edit { clear() }
     }
 
-    @Test fun sharedPreferences() {
+    @Test
+    fun sharedPreferences() {
         assertNull(preferences["name"])
         assertNull(preferences.getInt("age"))
         preferences.edit {

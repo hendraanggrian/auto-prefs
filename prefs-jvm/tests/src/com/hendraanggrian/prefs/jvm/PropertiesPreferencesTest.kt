@@ -10,12 +10,14 @@ import kotlin.test.assertEquals
 class PropertiesPreferencesTest {
     private lateinit var preferences: PropertiesPreferences
 
-    @BeforeTest fun createTest() {
+    @BeforeTest
+    fun createTest() {
         Prefs.setLogger(PreferencesLogger.System)
         preferences = Prefs[File("test.properties").apply { if (exists()) delete() }]
     }
 
-    @Test fun properties() {
+    @Test
+    fun properties() {
         preferences["name"] = "Hendra"
         preferences.save()
         assertEquals("Hendra", preferences["name"])

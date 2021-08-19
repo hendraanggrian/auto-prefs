@@ -29,7 +29,7 @@ class Example2Activity : AppCompatActivity() {
     }
 
     class SettingsFragment : PreferenceFragmentCompat() {
-        @BindPreference("name") var name: String? = null
+        @JvmField @BindPreference("name") var name: String? = null
         lateinit var preferenceName: EditTextPreference
         lateinit var preferenceMarried: SwitchPreferenceCompat
 

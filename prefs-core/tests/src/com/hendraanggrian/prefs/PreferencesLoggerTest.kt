@@ -5,7 +5,8 @@ import kotlin.test.Test
 
 class PreferencesLoggerTest {
 
-    @Test fun setLogger() {
+    @Test
+    fun setLogger() {
         val infos = mutableListOf<String>()
         val warns = mutableListOf<String>()
         Prefs.setLogger(object : PreferencesLogger {

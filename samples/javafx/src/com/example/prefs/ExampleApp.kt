@@ -36,10 +36,10 @@ class ExampleApp : Application() {
     private lateinit var ageField: TextField
     private lateinit var heightField: TextField
 
-    @BindPreference var name: String? = null
-    @BindPreference var married: String = "false"
-    @BindPreference var age: String = "0"
-    @BindPreference var height: String = "0.0"
+    @JvmField @BindPreference var name: String? = null
+    @JvmField @BindPreference var married: String = "false"
+    @JvmField @BindPreference var age: String = "0"
+    @JvmField @BindPreference var height: String = "0.0"
 
     private lateinit var saver: PreferencesSaver
 
