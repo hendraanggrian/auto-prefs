@@ -1,11 +1,11 @@
 package com.example.prefs
 
-import com.hendraanggrian.prefs.BindPreference
-import com.hendraanggrian.prefs.PreferencesLogger
-import com.hendraanggrian.prefs.PreferencesSaver
-import com.hendraanggrian.prefs.Prefs
-import com.hendraanggrian.prefs.jvm.bindPreferences
-import com.hendraanggrian.prefs.jvm.get
+import com.hendraanggrian.auto.prefs.BindPreference
+import com.hendraanggrian.auto.prefs.PreferencesLogger
+import com.hendraanggrian.auto.prefs.PreferencesSaver
+import com.hendraanggrian.auto.prefs.Prefs
+import com.hendraanggrian.auto.prefs.jvm.bindPreferences
+import com.hendraanggrian.auto.prefs.jvm.get
 import javafx.application.Application
 import javafx.scene.control.CheckBox
 import javafx.scene.control.TextField

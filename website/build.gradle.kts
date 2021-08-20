@@ -9,8 +9,7 @@ gitPublish {
         "src",
         "../$RELEASE_ARTIFACT-core/build/dokka",
         "../$RELEASE_ARTIFACT-android/build/dokka",
-        "../$RELEASE_ARTIFACT-jvm/build/dokka",
-        "../$RELEASE_ARTIFACT-compiler/build/dokka"
+        "../$RELEASE_ARTIFACT-jvm/build/dokka"
     )
 }
 
@@ -22,8 +21,7 @@ tasks {
         dependsOn(
             ":$RELEASE_ARTIFACT-core:dokkaHtml",
             ":$RELEASE_ARTIFACT-android:dokkaHtml",
-            ":$RELEASE_ARTIFACT-jvm:dokkaHtml",
-            ":$RELEASE_ARTIFACT-compiler:dokkaHtml"
+            ":$RELEASE_ARTIFACT-jvm:dokkaHtml"
         )
     }
 }

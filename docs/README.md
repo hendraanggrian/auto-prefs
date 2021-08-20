@@ -3,6 +3,7 @@
 
 Prefs
 =====
+
 Local settings library that runs in plain Java and Android.
 * Retrieve and assign values with Kotlin operator functions.
 * Annotation processor to bind preferences' values to JVM fields, similar to [ButterKnife](https://github.com/JakeWharton/butterknife).
@@ -34,6 +35,8 @@ dependencies {
     annotationProcessor "com.hendraanggrian.auto:prefs-compiler:$version" // or kapt
 }
 ```
+
+Snapshots of the development version are available in [Sonatype's snapshots repository](https://s01.oss.sonatype.org/content/repositories/snapshots).
 
 Usage
 -----

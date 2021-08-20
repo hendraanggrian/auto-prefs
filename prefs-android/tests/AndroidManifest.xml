@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:tools="http://schemas.android.com/tools"
-    package="com.hendraanggrian.prefs.android">
+    package="com.hendraanggrian.auto.prefs.android">
 
     <uses-sdk tools:overrideLibrary="androidx.test, android.app, androidx.test.rule, androidx.test.espresso, androidx.test.espresso.idling" />
 </manifest>

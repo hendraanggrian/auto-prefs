@@ -1,8 +1,8 @@
-include("prefs-core")
 include("prefs-annotations")
-include("prefs-compiler")
+include("prefs-core")
 include("prefs-jvm")
 include("prefs-android")
+include("prefs-compiler")
 
 include("website")
 includeDir("samples")

@@ -6,7 +6,7 @@
         android:name="com.example.prefs.ExampleApp"
         android:allowBackup="true"
         android:label="Prefs Example"
-        android:theme="@style/Theme.MaterialComponents.NoActionBar">
+        android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
         <activity android:name="com.example.prefs.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

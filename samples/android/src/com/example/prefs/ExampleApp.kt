@@ -1,11 +1,11 @@
 package com.example.prefs
 
-import android.app.Application
-import com.hendraanggrian.prefs.PreferencesLogger
-import com.hendraanggrian.prefs.Prefs
-import com.hendraanggrian.prefs.android.Android
+import androidx.multidex.MultiDexApplication
+import com.hendraanggrian.auto.prefs.PreferencesLogger
+import com.hendraanggrian.auto.prefs.Prefs
+import com.hendraanggrian.auto.prefs.android.Android
 
-class ExampleApp : Application() {
+class ExampleApp : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()

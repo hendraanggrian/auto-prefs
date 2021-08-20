@@ -8,9 +8,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
-import com.hendraanggrian.prefs.BindPreference
-import com.hendraanggrian.prefs.PreferencesSaver
-import com.hendraanggrian.prefs.android.bindPreferences
+import com.hendraanggrian.auto.prefs.BindPreference
+import com.hendraanggrian.auto.prefs.PreferencesSaver
+import com.hendraanggrian.auto.prefs.android.bindPreferences
 import kotlinx.android.synthetic.main.activity_example1.*
 
 class Example1Activity : AppCompatActivity(), View.OnClickListener {
