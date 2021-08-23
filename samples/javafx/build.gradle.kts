@@ -5,21 +5,21 @@ plugins {
     application
 }
 
-application.mainClass.set("com.example.$RELEASE_ARTIFACT.ExampleApp")
-
 javafx {
-    version = "11"
     modules("javafx.controls", "javafx.fxml")
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+application {
+    mainClass.set("com.example.$RELEASE_ARTIFACT.ExampleApp")
 }
 
 sourceSets {
-    get("main").java.srcDir("src")
-    get("test").java.srcDir("tests/src")
+    main {
+        java.srcDir("src")
+    }
+    test {
+        java.srcDir("tests/src")
+    }
 }
 
 dependencies {

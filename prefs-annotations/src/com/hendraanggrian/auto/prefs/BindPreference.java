@@ -18,9 +18,7 @@ public @interface BindPreference {
 
     /**
      * Key of the preference which value will be injected into the annotated field.
-     * If no key is supplied (default behavior), field name will be used as the key.
-     *
-     * @return preference key/name.
+     * @return preference key, or field name if left empty.
      */
     String value() default "";
 }

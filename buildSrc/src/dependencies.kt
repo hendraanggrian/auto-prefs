@@ -36,7 +36,7 @@ const val VERSION_TRUTH = "1.1.3"
 fun Dependencies.google(repo: String? = null, module: String, version: String) =
     "com.google${repo?.let { ".$it" }.orEmpty()}:$module:$version"
 
-const val VERSION_KTFX = "8.0.0-SNAPSHOT"
+const val VERSION_KTFX = "0.1-SNAPSHOT"
 const val VERSION_JAVAPOETKTX = "0.1-SNAPSHOT"
 fun Dependencies.hendraanggrian(module: String, version: String) = "com.hendraanggrian:$module:$version"
 fun Dependencies.hendraanggrian(repo: String, module: String, version: String) = "com.hendraanggrian.$repo:$module:$version"

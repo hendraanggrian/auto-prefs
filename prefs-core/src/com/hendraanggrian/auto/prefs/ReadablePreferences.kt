@@ -28,7 +28,7 @@ interface ReadablePreferences {
      * @param defaultValue value to return if this preference does not exist.
      * @return preference value if it exists, or default value.
      */
-    fun getOrDefault(key: String, defaultValue: String): String =
+    fun getOrDefault(key: String, defaultValue: String?): String? =
         findValue(key, defaultValue) { get(it) }
 
     /**
@@ -37,7 +37,7 @@ interface ReadablePreferences {
      * @param defaultValue value to return if this preference does not exist.
      * @return preference value if it exists, or default value.
      */
-    fun getOrElse(key: String, defaultValue: () -> String): String =
+    fun getOrElse(key: String, defaultValue: () -> String?): String? =
         getOrDefault(key, defaultValue())
 
     /**

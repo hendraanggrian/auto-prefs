@@ -81,7 +81,7 @@ class AndroidPreferences internal constructor(private val nativePreferences: Sha
     SharedPreferences by nativePreferences, EditablePreferences<AndroidPreferences.Editor> {
 
     override fun get(key: String): String? = getString(key, null)
-    override fun getOrDefault(key: String, defaultValue: String): String = getString(key, defaultValue)!!
+    override fun getOrDefault(key: String, defaultValue: String?): String? = getString(key, defaultValue)
 
     override fun getBoolean(key: String): Boolean? = if (key !in nativePreferences) null else getBoolean(key, false)
     override fun getBooleanOrDefault(key: String, defaultValue: Boolean): Boolean = getBoolean(key, defaultValue)
@@ -134,8 +134,8 @@ class AndroidPreferences internal constructor(private val nativePreferences: Sha
             nativeEditor.putInt(key, value)
         }
 
-        override fun set(key: String, value: Short): Unit = throw UnsupportedOperationException()
-        override fun set(key: String, value: Byte): Unit = throw UnsupportedOperationException()
+        override fun set(key: String, value: Short): Nothing = throw UnsupportedOperationException()
+        override fun set(key: String, value: Byte): Nothing = throw UnsupportedOperationException()
 
         /**
          * Save changes blocking thread.
