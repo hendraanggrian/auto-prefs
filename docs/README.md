@@ -5,8 +5,8 @@ Prefs
 =====
 
 Local settings library that runs in plain Java and Android.
-* Retrieve and assign values with Kotlin operator functions.
-* Annotation processor to bind preferences' values to JVM fields, similar to [ButterKnife](https://github.com/JakeWharton/butterknife).
+- Retrieve and assign values with Kotlin operator functions.
+- Annotation processor to bind preferences' values to JVM fields, similar to [ButterKnife](https://github.com/JakeWharton/butterknife).
 
 ```kotlin
 @JvmField @BindPreference var name: String = ""
