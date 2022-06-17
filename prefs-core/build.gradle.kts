@@ -23,8 +23,8 @@ sourceSets {
 ktlint()
 
 dependencies {
-    api(project(":$RELEASE_ARTIFACT-annotations"))
-    api(kotlin("stdlib", VERSION_KOTLIN))
+    implementation(project(":$RELEASE_ARTIFACT-annotations"))
+    implementation(kotlin("stdlib", VERSION_KOTLIN))
     testImplementation(kotlin("test-junit", VERSION_KOTLIN))
     testImplementation(google("truth", "truth", VERSION_TRUTH))
 }

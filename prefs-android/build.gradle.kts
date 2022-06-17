@@ -36,9 +36,9 @@ android {
 ktlint()
 
 dependencies {
-    api(project(":$RELEASE_ARTIFACT-core"))
-    api(androidx("preference", version = "1.1.1"))
-    api(androidx("fragment", version = VERSION_ANDROIDX)) {
+    implementation(project(":$RELEASE_ARTIFACT-core"))
+    implementation(androidx("preference", version = "1.1.1"))
+    implementation(androidx("fragment", version = VERSION_ANDROIDX)) {
         exclude(module = "listenablefuture")
     }
     androidTestImplementation(kotlin("test-junit", VERSION_KOTLIN))

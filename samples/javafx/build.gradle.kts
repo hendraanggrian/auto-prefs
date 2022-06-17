@@ -23,7 +23,7 @@ sourceSets {
 }
 
 dependencies {
-    api(kotlin("stdlib", VERSION_KOTLIN))
+    implementation(kotlin("stdlib", VERSION_KOTLIN))
     implementation(project(":$RELEASE_ARTIFACT-jvm"))
     kapt(project(":$RELEASE_ARTIFACT-compiler"))
     implementation(hendraanggrian("ktfx", "ktfx", VERSION_KTFX))
