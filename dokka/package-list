@@ -1,0 +1,12 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+module:prefs-android
+com.hendraanggrian.auto.prefs.android
+module:prefs-compiler
+com.hendraanggrian.auto.prefs.compiler
+module:prefs-core
+com.hendraanggrian.auto.prefs
+com.hendraanggrian.auto.prefs.internal
+module:prefs-jvm
+com.hendraanggrian.auto.prefs.jvm

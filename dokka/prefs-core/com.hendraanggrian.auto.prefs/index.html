@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>com.hendraanggrian.auto.prefs</title>
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../index.html">
+<span>auto-prefs</span>            </a>    </div>
+    <div>0.1-SNAPSHOT
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="prefs-core::com.hendraanggrian.auto.prefs////PointingToDeclaration//-93313876">
+  <div class="breadcrumbs"><a href="../index.html">prefs-core</a><span class="delimiter">/</span><span class="current">com.hendraanggrian.auto.prefs</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Types">Types</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Types</h2>
+      <div class="table" data-togglable="Types"><a data-name="-1283197587%2FClasslikes%2F-93313876" anchor-label="EditablePreferences" id="-1283197587%2FClasslikes%2F-93313876" data-filterable-set=":prefs-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":prefs-core:dokkaHtmlPartial/main" data-filterable-set=":prefs-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-editable-preferences/index.html"><span>Editable</span><wbr><span><span>Preferences</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1283197587%2FClasslikes%2F-93313876"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":prefs-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-editable-preferences/index.html">EditablePreferences</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-editable-preferences/index.html">E</a><span class="token operator"> : </span><a href="-preferences-editor/index.html">PreferencesEditor</a><span class="token operator">&gt;</span> : <a href="-readable-preferences/index.html">ReadablePreferences</a></div><div class="brief "><p class="paragraph">Subinterface of <a href="-readable-preferences/index.html">ReadablePreferences</a> that, in contrast to <a href="-writable-preferences/index.html">WritablePreferences</a>, requires an instance of <a href="-preferences-editor/index.html">PreferencesEditor</a> to modify preferences.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="2096403964%2FClasslikes%2F-93313876" anchor-label="PreferencesEditor" id="2096403964%2FClasslikes%2F-93313876" data-filterable-set=":prefs-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":prefs-core:dokkaHtmlPartial/main" data-filterable-set=":prefs-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-preferences-editor/index.html"><span>Preferences</span><wbr><span><span>Editor</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2096403964%2FClasslikes%2F-93313876"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":prefs-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-preferences-editor/index.html">PreferencesEditor</a> : <a href="-preferences-saver/index.html">PreferencesSaver</a></div><div class="brief "><p class="paragraph">Interface used for modifying values in a <a href="-readable-preferences/index.html">ReadablePreferences</a> object. All changes you make in an editor are batched, and not copied back to the original <a href="-readable-preferences/index.html">ReadablePreferences</a> until you call <a href="../../prefs-core/com.hendraanggrian.auto.prefs/-preferences-editor/save.html">save</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1280679737%2FClasslikes%2F-93313876" anchor-label="PreferencesLogger" id="1280679737%2FClasslikes%2F-93313876" data-filterable-set=":prefs-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":prefs-core:dokkaHtmlPartial/main" data-filterable-set=":prefs-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-preferences-logger/index.html"><span>Preferences</span><wbr><span><span>Logger</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1280679737%2FClasslikes%2F-93313876"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":prefs-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-preferences-logger/index.html">PreferencesLogger</a></div><div class="brief "><p class="paragraph">Interface that determines preferences logging behavior.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="2121021860%2FClasslikes%2F-93313876" anchor-label="PreferencesSaver" id="2121021860%2FClasslikes%2F-93313876" data-filterable-set=":prefs-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":prefs-core:dokkaHtmlPartial/main" data-filterable-set=":prefs-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-preferences-saver/index.html"><span>Preferences</span><wbr><span><span>Saver</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2121021860%2FClasslikes%2F-93313876"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":prefs-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-preferences-saver/index.html">PreferencesSaver</a></div><div class="brief "><p class="paragraph">Interface used for applying changes made in <a href="-preferences-editor/index.html">PreferencesEditor</a> object. When using <code class="lang-kotlin">ReadablePreferences.bind</code> to inject preferences' values to JVM fields, <a href="-preferences-saver/index.html">PreferencesSaver</a> is returned back to save changes made in JVM fields.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1861305393%2FClasslikes%2F-93313876" anchor-label="Prefs" id="1861305393%2FClasslikes%2F-93313876" data-filterable-set=":prefs-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":prefs-core:dokkaHtmlPartial/main" data-filterable-set=":prefs-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-prefs/index.html"><span><span>Prefs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1861305393%2FClasslikes%2F-93313876"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":prefs-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-prefs/index.html">Prefs</a></div><div class="brief "><p class="paragraph">Create an instance of <a href="-writable-preferences/index.html">WritablePreferences</a> or <a href="-editable-preferences/index.html">EditablePreferences</a> and bind its values to JVM fields with this object.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="2040161529%2FClasslikes%2F-93313876" anchor-label="ReadablePreferences" id="2040161529%2FClasslikes%2F-93313876" data-filterable-set=":prefs-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":prefs-core:dokkaHtmlPartial/main" data-filterable-set=":prefs-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-readable-preferences/index.html"><span>Readable</span><wbr><span><span>Preferences</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2040161529%2FClasslikes%2F-93313876"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":prefs-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-readable-preferences/index.html">ReadablePreferences</a></div><div class="brief "><p class="paragraph">Interface for accessing and modifying preference data on any target platform (JVM, Android, etc.).</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-239637335%2FClasslikes%2F-93313876" anchor-label="WritablePreferences" id="-239637335%2FClasslikes%2F-93313876" data-filterable-set=":prefs-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":prefs-core:dokkaHtmlPartial/main" data-filterable-set=":prefs-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-writable-preferences/index.html"><span>Writable</span><wbr><span><span>Preferences</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-239637335%2FClasslikes%2F-93313876"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":prefs-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-writable-preferences/index.html">WritablePreferences</a> : <a href="-readable-preferences/index.html">ReadablePreferences</a>, <a href="-preferences-editor/index.html">PreferencesEditor</a></div><div class="brief "><p class="paragraph">Subinterface of <a href="-readable-preferences/index.html">ReadablePreferences</a> that, in contrast to <a href="-editable-preferences/index.html">EditablePreferences</a>, can directly modify preferences since it also inherits <a href="-preferences-editor/index.html">PreferencesEditor</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+
