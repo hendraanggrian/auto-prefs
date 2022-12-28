@@ -1,13 +1,16 @@
-include("prefs-annotations")
-include("prefs-core")
-include("prefs-jvm")
-include("prefs-android")
-include("prefs-compiler")
+pluginManagement.repositories {
+    gradlePluginPortal()
+    mavenCentral()
+    google()
+}
+dependencyResolutionManagement.repositories {
+    mavenCentral()
+    google()
+    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+}
 
+rootProject.name = "auto-prefs"
+
+include("prefs-annotations", "prefs-core", "prefs-jvm", "prefs-android", "prefs-compiler" )
+include("sample-android", "sample-javafx")
 include("website")
-includeDir("samples")
-
-fun includeDir(path: String) = file(path)
-    .listFiles()!!
-    .filter { it.isDirectory }
-    .forEach { include("$path:${it.name}") }

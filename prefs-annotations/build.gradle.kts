@@ -1,22 +1,14 @@
-group = RELEASE_GROUP
-version = RELEASE_VERSION
+import com.vanniktech.maven.publish.JavaLibrary
+import com.vanniktech.maven.publish.JavadocJar
 
 plugins {
     `java-library`
-    `maven-publish`
-    signing
+    alias(libs.plugins.maven.publish)
 }
 
-sourceSets {
-    main {
-        java.srcDir("src")
-        resources.srcDir("res")
-    }
-}
+mavenPublishing.configure(JavaLibrary(JavadocJar.Javadoc()))
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 }
-
-mavenPublishJvm("$RELEASE_ARTIFACT-annotations")

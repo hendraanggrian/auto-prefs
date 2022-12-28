@@ -1,70 +1,28 @@
+import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
+
 plugins {
-    android("library")
-    kotlin("android")
-    dokka
-    `maven-publish`
-    signing
+    alias(libs.plugins.android.library)
+    kotlin("android") version libs.versions.kotlin
+    alias(libs.plugins.dokka)
+    alias(libs.plugins.kotlinx.kover)
+    alias(libs.plugins.maven.publish)
 }
 
 android {
-    compileSdk = SDK_TARGET
-    defaultConfig {
-        minSdk = SDK_MIN
-        targetSdk = SDK_TARGET
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-    sourceSets {
-        named("main") {
-            manifest.srcFile("AndroidManifest.xml")
-            java.srcDir("src")
-            res.srcDir("res")
-            resources.srcDir("src")
-        }
-        named("androidTest") {
-            setRoot("tests")
-            manifest.srcFile("tests/AndroidManifest.xml")
-            java.srcDir("tests/src")
-            res.srcDir("tests/res")
-            resources.srcDir("tests/src")
-        }
-    }
-    libraryVariants.all {
-        generateBuildConfigProvider.orNull?.enabled = false
-    }
+    defaultConfig.consumerProguardFiles("proguard-rules.pro")
+    buildFeatures.buildConfig = false
+    testOptions.unitTests.isIncludeAndroidResources = true
 }
 
-ktlint()
+mavenPublishing.configure(AndroidSingleVariantLibrary())
 
 dependencies {
-    implementation(project(":$RELEASE_ARTIFACT-core"))
-    implementation(androidx("preference", version = "1.1.1"))
-    implementation(androidx("fragment", version = VERSION_ANDROIDX)) {
-        exclude(module = "listenablefuture")
-    }
-    androidTestImplementation(kotlin("test-junit", VERSION_KOTLIN))
-    androidTestImplementation(androidx("test", "core-ktx", VERSION_ANDROIDX_TEST))
-    androidTestImplementation(androidx("test", "runner", VERSION_ANDROIDX_TEST))
-    androidTestImplementation(androidx("test", "rules", VERSION_ANDROIDX_TEST))
-    androidTestImplementation(androidx("test.ext", "junit-ktx", VERSION_ANDROIDX_JUNIT))
-    androidTestImplementation(androidx("test.ext", "truth", VERSION_ANDROIDX_TRUTH))
-    androidTestImplementation(androidx("test.espresso", "espresso-core", VERSION_ESPRESSO))
+    ktlint(libs.ktlint, ::configureKtlint)
+    ktlint(libs.rulebook.ktlint)
+    api(project(":prefs-core"))
+    implementation(libs.androidx.preference)
+    implementation(libs.androidx.fragment)
+    testImplementation(kotlin("test-junit", libs.versions.kotlin.get()))
+    testImplementation(libs.androidx.appcompat)
+    testImplementation(libs.bundles.androidx.test)
 }
-
-tasks {
-    dokkaJavadoc {
-        dokkaSourceSets {
-            "main" {
-                sourceLink {
-                    localDirectory.set(projectDir.resolve("src"))
-                    remoteUrl.set(getGithubRemoteUrl())
-                    remoteLineSuffix.set("#L")
-                }
-            }
-        }
-    }
-    dokkaHtml {
-        outputDirectory.set(buildDir.resolve("dokka/$RELEASE_ARTIFACT-android"))
-    }
-}
-
-mavenPublishAndroid("$RELEASE_ARTIFACT-android", sources = android.sourceSets["main"].java.srcDirs)
