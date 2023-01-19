@@ -8,8 +8,8 @@
         <meta content="chrome=1" http-equiv="X-UA-Compatible">
         <link href="styles/main.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,1,0" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet">
-        <script src="scripts/theme.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-groovy.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-kotlin.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+        <script src="scripts/theme.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-groovy.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-kotlin.min.js"></script>
         <!--Primary meta tags-->
         <meta content="auto-prefs" name="title">
         <meta content="Preferences field binder for JVM and Android" name="description">
@@ -38,7 +38,7 @@
 <a href="https://developer.android.com/studio/releases/platforms/#4.0"><img alt="Android SDK" src="https://img.shields.io/badge/sdk-14%2B-informational"></a>
                 </p>
 
-                <h1>Prefs</h1>
+                <h1>Auto Prefs</h1>
 
                 <p>Local settings library that runs in plain Java and Android.</p>
 
@@ -53,10 +53,9 @@ to <a href="https://github.com/JakeWharton/butterknife/">ButterKnife</a>.
 
                 </ul>
 
-                <pre><code class="language-kotlin">@JvmField @BindPreference var name: String = ""
-@JvmField @BindPreference var age: Int = 0
-
-lateinit var saver: PreferencesSaver = bindPreferences()
+                <pre><code class="language-kotlin">@JvmField @BindPreference var name = ""
+@JvmField @BindPreference var age = 0
+lateinit var saver = bindPreferences()
 
 fun applyChanges(person: Person) {
     name = person.name
@@ -67,7 +66,7 @@ fun applyChanges(person: Person) {
 
                 <h2>Download</h2>
 
-                <pre><code class="language-gradle">repositories {
+                <pre><code class="language-groovy">repositories {
     mavenCentral()
 }
 dependencies {
@@ -79,7 +78,55 @@ dependencies {
 
                 <h2>Usage</h2>
 
-                <p>Coming soon.</p>
+                <h3>JVM</h3>
+
+                <p>
+                    The native preference manager of Java applet is <a href="https://docs.oracle.com/javase/7/docs/api/java/util/prefs/Preferences.html">Preferences</a>
+.
+                </p>
+
+                <pre><code class="language-kotlin">class MyClass {
+    @JvmField @BindPreference var name = ""
+    @JvmField @BindPreference var age = 0
+    lateinit var saver: PreferencesSaver
+
+    init {
+      val preferences = Preferences.userNodeForPackage(MyClass::class.java)
+      saver = bindPreferences(preferences)
+    }
+
+    fun applyChanges(person: Person) {
+        name = person.name
+        age = person.age
+        saver.save()
+    }
+}
+</code></pre>
+
+                <h3>Android</h3>
+
+                <p>
+                    In Android, <a href="https://developer.android.com/reference/android/content/SharedPreferences">SharedPreferences</a>
+can be created from <code>Context</code> or <code>Fragment</code>.
+                </p>
+
+                <pre><code class="language-kotlin">class MyActivity : Activity() {
+    @JvmField @BindPreference var name = ""
+    @JvmField @BindPreference var age = 0
+    lateinit var saver: PreferencesSaver
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        saver = bindPreferences()
+    }
+
+    fun applyChanges(person: Person) {
+        name = person.name
+        age = person.age
+        saver.save()
+    }
+}
+</code></pre>
 
             </section>
             <footer>
