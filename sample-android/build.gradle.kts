@@ -7,7 +7,7 @@ plugins {
 
 android {
     defaultConfig {
-        applicationId = "com.example"
+        applicationId = "com.example.autoprefs"
         multiDexEnabled = true
     }
     lint.abortOnError = false
@@ -27,5 +27,4 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.preference.ktx)
     implementation(libs.androidx.multidex)
-    implementation(libs.commons.lang)
 }

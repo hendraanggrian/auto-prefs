@@ -1,4 +1,4 @@
-package com.example.test
+package com.example.autoprefs.test
 
 import com.hendraanggrian.auto.prefs.BindPreference
 

@@ -6,7 +6,6 @@ package com.hendraanggrian.auto.prefs
  * fields, [PreferencesSaver] is returned back to save changes made in JVM fields.
  */
 interface PreferencesSaver {
-
     companion object {
         internal val EMPTY: PreferencesSaver = object : PreferencesSaver {
             override fun save() = Prefs.warn("Saving an empty preferences.")

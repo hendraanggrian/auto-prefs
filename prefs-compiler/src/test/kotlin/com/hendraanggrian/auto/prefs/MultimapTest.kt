@@ -5,7 +5,6 @@ import org.junit.Assert.assertEquals
 import kotlin.test.Test
 
 class MultimapTest {
-
     @Test
     fun test() {
         val multimap = HashMultimap.create<String, Int>()

@@ -7,7 +7,6 @@ package com.hendraanggrian.auto.prefs
  * @param E editor of this preferences.
  */
 interface EditablePreferences<E : PreferencesEditor> : ReadablePreferences {
-
     /** Returns an editor to modify preferences. */
     val editor: E
 

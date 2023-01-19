@@ -8,7 +8,6 @@ package com.hendraanggrian.auto.prefs
  * @see EditablePreferences
  */
 interface ReadablePreferences {
-
     /**
      * Checks whether the preferences contains a preference.
      *

@@ -6,7 +6,6 @@ package com.hendraanggrian.auto.prefs
  * call [save].
  */
 interface PreferencesEditor : PreferencesSaver {
-
     /**
      * Mark in the editor that a preference value should be removed.
      *

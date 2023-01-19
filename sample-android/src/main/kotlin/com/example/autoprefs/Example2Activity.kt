@@ -1,4 +1,4 @@
-package com.example
+package com.example.autoprefs
 
 import android.content.Context
 import android.os.Bundle
@@ -13,7 +13,6 @@ import com.hendraanggrian.auto.prefs.android.bindPreferences
 import kotlinx.android.synthetic.main.activity_example2.*
 
 class Example2Activity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_example2)

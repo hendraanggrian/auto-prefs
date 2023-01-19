@@ -1,4 +1,4 @@
-package com.example
+package com.example.autoprefs
 
 import android.os.Bundle
 import android.view.Menu

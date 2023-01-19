@@ -6,7 +6,7 @@ pluginManagement.repositories {
 dependencyResolutionManagement.repositories {
     mavenCentral()
     google()
-    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/") // KtFX for sample
 }
 
 rootProject.name = "auto-prefs"

@@ -4,7 +4,6 @@ import com.google.common.truth.Truth.assertThat
 import kotlin.test.Test
 
 class PreferencesLoggerTest {
-
     @Test
     fun setLogger() {
         val infos = mutableListOf<String>()

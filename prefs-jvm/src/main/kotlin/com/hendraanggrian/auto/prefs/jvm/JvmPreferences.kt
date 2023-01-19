@@ -1,5 +1,3 @@
-@file:JvmMultifileClass
-@file:JvmName("PrefsJvmKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package com.hendraanggrian.auto.prefs.jvm
@@ -11,94 +9,32 @@ import java.io.OutputStream
 import java.util.prefs.NodeChangeListener
 import java.util.prefs.PreferenceChangeListener
 import java.util.prefs.Preferences
-import kotlin.reflect.KClass
 
 /**
- * Create a [JvmPreferences] from source [Preferences].
+ * Bind fields annotated with [com.hendraanggrian.auto.prefs.BindPreference] to target [Any]
+ * from [Preferences].
  *
- * @param source native JVM preferences.
- * @return preferences that reads/writes to [Preferences].
- */
-operator fun Prefs.get(source: Preferences): JvmPreferences = JvmPreferences(source)
-
-/**
- * Create a user root [JvmPreferences] from Kotlin class.
- *
- * @param type the class for whose package a user preference node is desired.
- * @param paths path to specific children node, or empty for root.
- * @return preferences that reads/writes to [Preferences].
- */
-fun Prefs.userNode(type: KClass<*>, vararg paths: String): JvmPreferences =
-    JvmPreferences(Preferences.userNodeForPackage(type.java).nodes(*paths))
-
-/**
- * Create a user root [JvmPreferences] from Kotlin reified type.
- *
- * @param T the class for whose package a user preference node is desired.
- * @param paths path to specific children node, or empty for root.
- * @return preferences that reads/writes to [Preferences].
- */
-inline fun <reified T> Prefs.userNode(vararg paths: String): JvmPreferences =
-    userNode(T::class, *paths)
-
-/**
- * Create a system root [JvmPreferences] from Kotlin class.
- *
- * @param type the class for whose package a user preference node is desired.
- * @param paths path to specific children node, or empty for root.
- * @return preferences that reads/writes to [Preferences].
- */
-fun Prefs.systemNode(type: KClass<*>, vararg paths: String): JvmPreferences =
-    JvmPreferences(Preferences.systemNodeForPackage(type.java).nodes(*paths))
-
-/**
- * Create a system root [JvmPreferences] from Kotlin reified type.
- *
- * @param T the class for whose package a user preference node is desired.
- * @param paths path to specific children node, or empty for root.
- * @return preferences that reads/writes to [Preferences].
- */
-inline fun <reified T> Prefs.systemNode(vararg paths: String): JvmPreferences =
-    systemNode(T::class, *paths)
-
-/**
- * Create a user root [JvmPreferences].
- *
- * @param paths path to specific children node, or empty for root.
- * @return preferences that reads/writes to [Preferences].
- */
-fun Prefs.userRoot(vararg paths: String): JvmPreferences =
-    JvmPreferences(Preferences.userRoot().nodes(*paths))
-
-/**
- * Create a system root [JvmPreferences].
- *
- * @param paths path to specific children node, or empty for root.
- * @return preferences that reads/writes to [Preferences].
- */
-fun Prefs.systemRoot(vararg paths: String): JvmPreferences =
-    JvmPreferences(Preferences.systemRoot().nodes(*paths))
-
-private inline fun Preferences.nodes(vararg paths: String): Preferences {
-    var root = this
-    paths.forEach { root = root.node(it) }
-    return root
-}
-
-/**
- * Bind fields annotated with [com.hendraanggrian.auto.prefs.BindPreference] from
- * source [JvmPreferences].
- *
- * @receiver target fields' owner.
- * @param source preferences to extract
+ * @receiver platform-specific preferences.
+ * @param target fields' owner.
  * @return saver instance to apply changes made to the fields.
  * @throws RuntimeException when constructor of binding class cannot be found.
  */
-inline fun <T : Any> T.bindPreferences(source: JvmPreferences): PreferencesSaver =
-    Prefs.bind(source, this)
+inline fun Preferences.bindTo(target: Any): PreferencesSaver =
+    Prefs.bind(target) { JvmPreferences(this) }
+
+/**
+ * Bind fields annotated with [com.hendraanggrian.auto.prefs.BindPreference] from
+ * source [Preferences] to target [Any].
+ *
+ * @receiver target fields' owner.
+ * @param preferences platform-specific preferences.
+ * @return saver instance to apply changes made to the fields.
+ * @throws RuntimeException when constructor of binding class cannot be found.
+ */
+fun Any.bindPreferences(preferences: Preferences): PreferencesSaver = preferences.bindTo(this)
 
 /** A wrapper of [Preferences] with [WritablePreferences] implementation. */
-class JvmPreferences internal constructor(private val nativePreferences: Preferences) :
+class JvmPreferences(private val nativePreferences: Preferences) :
     Preferences(), WritablePreferences {
 
     override fun put(key: String, value: String?): Unit = nativePreferences.put(key, value)

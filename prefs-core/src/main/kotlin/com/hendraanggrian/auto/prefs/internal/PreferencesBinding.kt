@@ -12,7 +12,6 @@ import com.hendraanggrian.auto.prefs.WritablePreferences
  * use.
  */
 abstract class PreferencesBinding(private val source: ReadablePreferences) : PreferencesSaver {
-
     protected fun get(key: String, defaultValue: String?): String? = source[key] ?: defaultValue
 
     protected fun get(key: String, defaultValue: Boolean): Boolean =

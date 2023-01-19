@@ -4,7 +4,7 @@ jdk: openjdk11
 
 env:
   global:
-    - TARGET_SDK=32
+    - TARGET_SDK=33
     - BUILD_TOOLS=33.0.0
     - ANDROID_HOME=~/android-sdk
 
@@ -20,7 +20,12 @@ before_install:
   - yes | "$ANDROID_HOME"/cmdline-tools/bin/sdkmanager "build-tools;$BUILD_TOOLS" --sdk_root="$ANDROID_HOME"
 
 script:
-  - ./gradlew check --info
+  # skip sample-javafx because Liberica's full JDKs are not supported in Travis
+  - ./gradlew prefs-android:check --info
+  - ./gradlew prefs-compiler:check --info
+  - ./gradlew prefs-core:check --info
+  - ./gradlew prefs-jvm:check --info
+  - ./gradlew sample-android:check --info
   - ./gradlew koverXmlReport
 
 after_success:

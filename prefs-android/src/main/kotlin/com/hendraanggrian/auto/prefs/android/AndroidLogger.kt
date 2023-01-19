@@ -1,6 +1,3 @@
-@file:JvmMultifileClass
-@file:JvmName("PrefsAndroidKt")
-
 package com.hendraanggrian.auto.prefs.android
 
 import android.util.Log

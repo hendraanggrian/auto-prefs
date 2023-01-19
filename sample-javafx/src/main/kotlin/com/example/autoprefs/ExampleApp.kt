@@ -1,11 +1,11 @@
-package com.example
+package com.example.autoprefs
 
 import com.hendraanggrian.auto.prefs.BindPreference
 import com.hendraanggrian.auto.prefs.PreferencesLogger
 import com.hendraanggrian.auto.prefs.PreferencesSaver
 import com.hendraanggrian.auto.prefs.Prefs
+import com.hendraanggrian.auto.prefs.jvm.System
 import com.hendraanggrian.auto.prefs.jvm.bindPreferences
-import com.hendraanggrian.auto.prefs.jvm.get
 import javafx.application.Application
 import javafx.scene.control.CheckBox
 import javafx.scene.control.TextField
@@ -21,11 +21,9 @@ import ktfx.layouts.gridPane
 import ktfx.layouts.label
 import ktfx.layouts.scene
 import ktfx.layouts.textField
-import org.apache.commons.lang3.SystemUtils
-import java.io.File
+import java.util.prefs.Preferences
 
 class ExampleApp : Application() {
-
     companion object {
         @JvmStatic
         fun main(args: Array<String>) = launchApplication<ExampleApp>(*args)
@@ -46,8 +44,7 @@ class ExampleApp : Application() {
     override fun init() = Prefs.setLogger(PreferencesLogger.System)
 
     override fun start(stage: Stage) {
-        saver = bindPreferences(Prefs[File(SystemUtils.USER_HOME, "Desktop")
-            .resolve("test.properties")])
+        saver = bindPreferences(Preferences.userNodeForPackage(ExampleApp::class.java))
         stage.scene {
             gridPane {
                 padding = insetsOf(10)

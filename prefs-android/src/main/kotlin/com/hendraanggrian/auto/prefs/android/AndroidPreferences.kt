@@ -1,6 +1,4 @@
-@file:JvmMultifileClass
-@file:JvmName("PrefsAndroidKt")
-@file:Suppress("NOTHING_TO_INLINE", "DEPRECATION", "DeprecatedCallableAddReplaceWith")
+@file:Suppress("NOTHING_TO_INLINE", "DEPRECATION")
 
 package com.hendraanggrian.auto.prefs.android
 
@@ -16,75 +14,69 @@ import com.hendraanggrian.auto.prefs.PreferencesSaver
 import com.hendraanggrian.auto.prefs.Prefs
 
 /**
- * Create a [AndroidPreferences] from source [SharedPreferences].
+ * Bind fields annotated with [com.hendraanggrian.auto.prefs.BindPreference] to target [Any]
+ * from [SharedPreferences].
  *
- * @param source native Android preferences.
- * @return preferences that reads/writes to [SharedPreferences].
- */
-operator fun Prefs.get(source: SharedPreferences): AndroidPreferences = AndroidPreferences(source)
-
-/**
- * Create a [AndroidPreferences] from source [Context].
- *
- * @receiver application context.
- * @return preferences that reads/writes to [SharedPreferences].
- */
-inline val Context.preferences: AndroidPreferences
-    get() = Prefs[PreferenceManager.getDefaultSharedPreferences(this)]
-
-/**
- * Create a [AndroidPreferences] from source [Fragment].
- *
- * @receiver deprecated fragment.
- * @return preferences that reads/writes to [SharedPreferences].
- */
-@Deprecated("Use support androidx.fragment.app.Fragment.")
-inline val Fragment.preferences: AndroidPreferences
-    get() = Prefs[PreferenceManager.getDefaultSharedPreferences(activity)]
-
-/**
- * Create a [AndroidPreferences] from source [androidx.fragment.app.Fragment].
- *
- * @receiver support fragment.
- * @return preferences that reads/writes to [SharedPreferences].
- */
-inline val androidx.fragment.app.Fragment.preferences: AndroidPreferences
-    get() = Prefs[PreferenceManager.getDefaultSharedPreferences(context!!)]
-
-/**
- * Bind fields annotated with [com.hendraanggrian.auto.prefs.BindPreference] from source [Context].
- *
- * @receiver application context and also target fields' owner.
+ * @receiver platform-specific preferences.
+ * @param target fields' owner.
  * @return saver instance to apply changes made to the fields.
  * @throws RuntimeException when constructor of binding class cannot be found.
  */
-inline fun Context.bindPreferences(): PreferencesSaver =
-    Prefs.bind(preferences, this)
-
-/**
- * Bind fields annotated with [com.hendraanggrian.auto.prefs.BindPreference] from source [Fragment].
- *
- * @receiver deprecated fragment and also target fields' owner.
- * @return saver instance to apply changes made to the fields.
- * @throws RuntimeException when constructor of binding class cannot be found.
- */
-@Deprecated("Use support androidx.fragment.app.Fragment.")
-inline fun Fragment.bindPreferences(): PreferencesSaver =
-    Prefs.bind(preferences, this)
+inline fun SharedPreferences.bindTo(target: Any): PreferencesSaver =
+    Prefs.bind(target) { AndroidPreferences(this) }
 
 /**
  * Bind fields annotated with [com.hendraanggrian.auto.prefs.BindPreference] from
- * source [androidx.fragment.app.Fragment].
+ * source [SharedPreferences] to target [Any].
  *
- * @receiver support fragment and also target fields' owner.
+ * @receiver target fields' owner.
+ * @param preferences platform-specific preferences.
  * @return saver instance to apply changes made to the fields.
  * @throws RuntimeException when constructor of binding class cannot be found.
  */
-inline fun androidx.fragment.app.Fragment.bindPreferences(): PreferencesSaver =
-    Prefs.bind(preferences, this)
+fun Any.bindPreferences(preferences: SharedPreferences): PreferencesSaver = preferences.bindTo(this)
+
+/**
+ * Bind fields annotated with [com.hendraanggrian.auto.prefs.BindPreference] from source and to
+ * target [Context].
+ *
+ * @receiver application context and also target fields' owner.
+ * @param preferences platform-specific preferences.
+ * @return saver instance to apply changes made to the fields.
+ * @throws RuntimeException when constructor of binding class cannot be found.
+ */
+fun Context.bindPreferences(
+    preferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+): PreferencesSaver = preferences.bindTo(this)
+
+/**
+ * Bind fields annotated with [com.hendraanggrian.auto.prefs.BindPreference] from source and to
+ * target [Fragment].
+ *
+ * @receiver deprecated fragment and also target fields' owner.
+ * @param preferences platform-specific preferences.
+ * @return saver instance to apply changes made to the fields.
+ * @throws RuntimeException when constructor of binding class cannot be found.
+ */
+fun Fragment.bindPreferences(
+    preferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity)
+): PreferencesSaver = preferences.bindTo(this)
+
+/**
+ * Bind fields annotated with [com.hendraanggrian.auto.prefs.BindPreference] from source and to
+ * target [androidx.fragment.app.Fragment].
+ *
+ * @receiver support fragment and also target fields' owner.
+ * @param preferences platform-specific preferences.
+ * @return saver instance to apply changes made to the fields.
+ * @throws RuntimeException when constructor of binding class cannot be found.
+ */
+fun androidx.fragment.app.Fragment.bindPreferences(
+    preferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context!!)
+): PreferencesSaver = preferences.bindTo(this)
 
 /** A wrapper of [SharedPreferences] with [EditablePreferences] implementation. */
-class AndroidPreferences internal constructor(private val nativePreferences: SharedPreferences) :
+class AndroidPreferences(private val nativePreferences: SharedPreferences) :
     SharedPreferences by nativePreferences, EditablePreferences<AndroidPreferences.Editor> {
 
     override fun get(key: String): String? = getString(key, null)
@@ -125,6 +117,7 @@ class AndroidPreferences internal constructor(private val nativePreferences: Sha
     /** A wrapper of [SharedPreferences.Editor] with [PreferencesEditor] implementation. */
     class Editor internal constructor(private val nativeEditor: SharedPreferences.Editor) :
         PreferencesEditor {
+
         override fun remove(key: String) {
             nativeEditor.remove(key)
         }
@@ -156,6 +149,7 @@ class AndroidPreferences internal constructor(private val nativePreferences: Sha
         }
 
         override fun set(key: String, value: Short): Nothing = throw UnsupportedOperationException()
+
         override fun set(key: String, value: Byte): Nothing = throw UnsupportedOperationException()
 
         /**
