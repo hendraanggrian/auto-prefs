@@ -3,7 +3,6 @@
 package com.hendraanggrian.auto.prefs.compiler
 
 import com.google.auto.common.MoreElements
-import com.hendraanggrian.auto.prefs.BindPreference
 import com.hendraanggrian.javapoet.classNameOf
 import javax.lang.model.element.TypeElement
 
@@ -35,5 +34,5 @@ internal val TypeElement.measuredName: String
         for (i in 1 until enclosings.size) {
             typeName += "$${enclosings[i]}"
         }
-        return typeName + BindPreference.SUFFIX
+        return "${typeName}_PreferencesBinding"
     }

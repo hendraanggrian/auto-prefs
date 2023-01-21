@@ -14,8 +14,7 @@ import com.hendraanggrian.auto.prefs.PreferencesSaver
 import com.hendraanggrian.auto.prefs.Prefs
 
 /**
- * Bind fields annotated with [com.hendraanggrian.auto.prefs.BindPreference] to target [Any]
- * from [SharedPreferences].
+ * Bind fields annotated with `BindPreference` to target [Any] from [SharedPreferences].
  *
  * @receiver platform-specific preferences.
  * @param target fields' owner.
@@ -26,8 +25,7 @@ inline fun SharedPreferences.bindTo(target: Any): PreferencesSaver =
     Prefs.bind(target) { AndroidPreferences(this) }
 
 /**
- * Bind fields annotated with [com.hendraanggrian.auto.prefs.BindPreference] from
- * source [SharedPreferences] to target [Any].
+ * Bind fields annotated with `BindPreference` from source [SharedPreferences] to target [Any].
  *
  * @receiver target fields' owner.
  * @param preferences platform-specific preferences.
@@ -37,8 +35,7 @@ inline fun SharedPreferences.bindTo(target: Any): PreferencesSaver =
 fun Any.bindPreferences(preferences: SharedPreferences): PreferencesSaver = preferences.bindTo(this)
 
 /**
- * Bind fields annotated with [com.hendraanggrian.auto.prefs.BindPreference] from source and to
- * target [Context].
+ * Bind fields annotated with `BindPreference` from source and to target [Context].
  *
  * @receiver application context and also target fields' owner.
  * @param preferences platform-specific preferences.
@@ -50,8 +47,7 @@ fun Context.bindPreferences(
 ): PreferencesSaver = preferences.bindTo(this)
 
 /**
- * Bind fields annotated with [com.hendraanggrian.auto.prefs.BindPreference] from source and to
- * target [Fragment].
+ * Bind fields annotated with `BindPreference` from source and to target [Fragment].
  *
  * @receiver deprecated fragment and also target fields' owner.
  * @param preferences platform-specific preferences.
@@ -63,7 +59,7 @@ fun Fragment.bindPreferences(
 ): PreferencesSaver = preferences.bindTo(this)
 
 /**
- * Bind fields annotated with [com.hendraanggrian.auto.prefs.BindPreference] from source and to
+ * Bind fields annotated with `BindPreference` from source and to
  * target [androidx.fragment.app.Fragment].
  *
  * @receiver support fragment and also target fields' owner.

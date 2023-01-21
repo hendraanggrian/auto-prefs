@@ -11,8 +11,7 @@ import java.util.prefs.PreferenceChangeListener
 import java.util.prefs.Preferences
 
 /**
- * Bind fields annotated with [com.hendraanggrian.auto.prefs.BindPreference] to target [Any]
- * from [Preferences].
+ * Bind fields annotated with `BindPreference` to target [Any] from [Preferences].
  *
  * @receiver platform-specific preferences.
  * @param target fields' owner.
@@ -23,8 +22,7 @@ inline fun Preferences.bindTo(target: Any): PreferencesSaver =
     Prefs.bind(target) { JvmPreferences(this) }
 
 /**
- * Bind fields annotated with [com.hendraanggrian.auto.prefs.BindPreference] from
- * source [Preferences] to target [Any].
+ * Bind fields annotated with `BindPreference` from source [Preferences] to target [Any].
  *
  * @receiver target fields' owner.
  * @param preferences platform-specific preferences.
@@ -85,7 +83,7 @@ class JvmPreferences(private val nativePreferences: Preferences) :
 
     override fun nodeExists(pathName: String?): Boolean = nativePreferences.nodeExists(pathName)
 
-    override fun removeNode() = nativePreferences.removeNode()
+    override fun removeNode(): Unit = nativePreferences.removeNode()
 
     override fun name(): String = nativePreferences.name()
 
@@ -95,25 +93,25 @@ class JvmPreferences(private val nativePreferences: Preferences) :
 
     override fun toString(): String = nativePreferences.toString()
 
-    override fun flush() = nativePreferences.flush()
+    override fun flush(): Unit = nativePreferences.flush()
 
-    override fun sync() = nativePreferences.sync()
+    override fun sync(): Unit = nativePreferences.sync()
 
-    override fun addPreferenceChangeListener(pcl: PreferenceChangeListener?) =
+    override fun addPreferenceChangeListener(pcl: PreferenceChangeListener?): Unit =
         nativePreferences.addPreferenceChangeListener(pcl)
 
-    override fun removePreferenceChangeListener(pcl: PreferenceChangeListener?) =
+    override fun removePreferenceChangeListener(pcl: PreferenceChangeListener?): Unit =
         nativePreferences.removePreferenceChangeListener(pcl)
 
-    override fun addNodeChangeListener(ncl: NodeChangeListener?) =
+    override fun addNodeChangeListener(ncl: NodeChangeListener?): Unit =
         nativePreferences.removeNodeChangeListener(ncl)
 
-    override fun removeNodeChangeListener(ncl: NodeChangeListener?) =
+    override fun removeNodeChangeListener(ncl: NodeChangeListener?): Unit =
         nativePreferences.removeNodeChangeListener(ncl)
 
-    override fun exportNode(os: OutputStream?) = nativePreferences.exportNode(os)
+    override fun exportNode(os: OutputStream?): Unit = nativePreferences.exportNode(os)
 
-    override fun exportSubtree(os: OutputStream?) = nativePreferences.exportSubtree(os)
+    override fun exportSubtree(os: OutputStream?): Unit = nativePreferences.exportSubtree(os)
 
     override fun contains(key: String): Boolean = nodeExists(key)
 

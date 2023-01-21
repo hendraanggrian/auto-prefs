@@ -16,7 +16,7 @@ import kotlin.test.assertFalse
 class AndroidPreferencesTest {
     private lateinit var preferences: AndroidPreferences
     @JvmField @BindPreference var string = ""
-    @JvmField @BindPreference var int = 0
+    @JvmField @BindPreference var integer = 0
 
     @BeforeTest
     fun setup() {
@@ -29,28 +29,28 @@ class AndroidPreferencesTest {
     @Test
     fun `Non-binding test`() {
         assertFalse("string" in preferences)
-        assertFalse("int" in preferences)
+        assertFalse("integer" in preferences)
 
         preferences.edit {
             this["string"] = "Hello World"
-            this["int"] = 10
+            this["integer"] = 10
         }
 
         assertEquals("Hello World", preferences["string"])
-        assertEquals(10, preferences.getInt("int"))
+        assertEquals(10, preferences.getInt("integer"))
     }
 
-    // @Test
-    fun test() {
-        assertEquals("", string)
-        assertEquals(0, int)
+    @Test
+    fun `Binding test`() {
+        assertFalse("string" in preferences)
+        assertFalse("integer" in preferences)
 
         val saver = bindPreferences(preferences)
         string = "Hello World"
-        int = 10
+        integer = 10
         saver.save()
 
         assertEquals("Hello World", preferences["string"])
-        assertEquals(10, preferences.getInt("int"))
+        assertEquals(10, preferences.getInt("integer"))
     }
 }

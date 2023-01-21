@@ -12,7 +12,7 @@ import kotlin.test.assertFalse
 class JvmPreferencesTest {
     private lateinit var preferences: JvmPreferences
     @JvmField @BindPreference var string = ""
-    @JvmField @BindPreference var int = 0
+    @JvmField @BindPreference var integer = 0
 
     @BeforeTest
     fun setup() {
@@ -26,27 +26,27 @@ class JvmPreferencesTest {
     @Test
     fun `Non-binding test`() {
         assertFalse("string" in preferences)
-        assertFalse("int" in preferences)
+        assertFalse("integer" in preferences)
 
         preferences["string"] = "Hello World"
-        preferences["int"] = 10
+        preferences["integer"] = 10
         preferences.save()
 
         assertEquals("Hello World", preferences["string"])
-        assertEquals(10, preferences.getInt("int"))
+        assertEquals(10, preferences.getInt("integer"))
     }
 
-    // @Test
+    @Test
     fun `Binding test`() {
         assertFalse("string" in preferences)
-        assertFalse("int" in preferences)
+        assertFalse("integer" in preferences)
 
         val saver = bindPreferences(preferences)
         string = "Hello World"
-        int = 10
+        integer = 10
         saver.save()
 
         assertEquals("Hello World", preferences["string"])
-        assertEquals(10, preferences.getInt("int"))
+        assertEquals(10, preferences.getInt("integer"))
     }
 }

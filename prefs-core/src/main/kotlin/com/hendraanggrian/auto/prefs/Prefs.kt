@@ -30,7 +30,7 @@ object Prefs {
     }
 
     /**
-     * Bind fields annotated with [BindPreference] with values from this preferences.
+     * Bind fields annotated with `BindPreference` with values from this preferences.
      *
      * @param target fields' owner.
      * @param getSource callable to return platform-specific preferences.
@@ -79,7 +79,7 @@ object Prefs {
         }
         try {
             binding = `class`.classLoader!!
-                .loadClass(className + BindPreference.SUFFIX)
+                .loadClass("${className}_PreferencesBinding")
                 .getConstructor(ReadablePreferences::class.java, `class`)
                 as Constructor<PreferencesSaver>
             info("HIT: Loaded binding class, caching in weak map.")
